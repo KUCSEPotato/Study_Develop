@@ -1,0 +1,13 @@
+<!-- templates/about.html; 자식 템플릿 -->
+<!-- 'extends' 태그를 사용하여 'base.html'을 상속받겠다고 선언합니다. 이는 'about.html'이 'base.html'의 블록을 재정의할 수 있음을 의미합니다. -->
+{% extends "base.html" %}
+
+<!-- 'pagetitle' 블록을 재정의하여 이 페이지의 타이틀을 'About - 나의 웹사이트'로 설정합니다. -->
+{% block pagetitle %}About - 나의 웹사이트{% endblock %}
+
+<!-- 'maincontent' 블록을 재정의하여 '우리에 대해서' 섹션을 추가합니다. -->
+<!-- 이렇게 함으로써 'base.html'에 정의된 기본 구조 내에 새로운 내용을 삽입할 수 있습니다. -->
+{% block maincontent %}
+    <h2>우리에 대해서</h2>
+    <p>이 페이지는 나의 웹사이트에 대한 정보를 제공합니다.</p>
+{% endblock %}  

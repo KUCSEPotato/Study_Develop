@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello World</title>
+</head>
+<body>
+    <h1>Hello, {{ name }}!</h1>
+    <!-- 
+        Flask 템플릿 엔진인 Jinja2를 사용하여 
+        name 변수를 HTML에 삽입합니다.
+        {{ name }} 부분이 Flask에서 전달된 name 변수의 값으로 대체됩니다.
+        
+        이외에도 제어문, 필터, 반복문까지 사용할 수 있습니다.
+        예시 코드는 아래와 같습니다.
+        
+        # 조건문
+        {% if name %}
+            <p>Welcome, {{ name }}!</p>
+        {% else %}
+            <p>Hello, Guest!</p>
+        {% endif %}
+        
+        # 필터
+        <p>{{ user_name|capitalize }}</p>
+        <p>{{ story|truncate(100) }}</p>
+        <p>{{ timestamp|date('Y-m-d H:i') }}</p>
+        이 외에도 필터에는 다양한 옵션들이 있습니다.
+        safe, capitalize, lower, upper, title, trim, striptags, truncate, length, join, replace, default, date, time, urlize, wordcount, random, sort, reverse 등이 있습니다.
+
+        # 반복문: 반복문은 fruits_list.html 파일을 참조하면 됩니다.
+    -->
+</body>
+</html>

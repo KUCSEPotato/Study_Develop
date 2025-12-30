@@ -1,0 +1,10 @@
+2025-07-11 14:07:53,475:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-11 14:07:53,476:INFO:[33mPress CTRL+C to quit[0m
+2025-07-11 14:08:20,679:DEBUG:Debug level log
+2025-07-11 14:08:20,680:INFO:Info level log
+2025-07-11 14:08:20,681:WARNING:Warning level log
+2025-07-11 14:08:20,681:ERROR:Error level log
+2025-07-11 14:08:20,682:CRITICAL:Critical level log
+2025-07-11 14:08:20,683:INFO:127.0.0.1 - - [11/Jul/2025 14:08:20] "GET / HTTP/1.1" 200 -
+2025-07-11 14:08:20,796:INFO:127.0.0.1 - - [11/Jul/2025 14:08:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -

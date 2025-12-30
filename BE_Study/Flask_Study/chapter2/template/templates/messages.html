@@ -1,0 +1,16 @@
+<!-- templates/messages.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Messages</title>
+</head>
+<body>
+    {% from "macro.html" import display_message %}
+    <!-- 매크로 호출 -->
+    {{ display_message("Hello, this is a message from the macro!") }}
+    {{ display_message("This is another message.") }}
+    {{ display_message("You can use this macro to display any message.") }}
+</body>
+</html>

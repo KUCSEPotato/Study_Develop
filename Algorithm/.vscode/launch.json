@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Current File (integratedTerminal)",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "stopOnEntry": false,
+      "cwd": "${fileDirname}",
+      "redirectOutput": true,
+      "env": {
+        "PYTHONIOENCODING": "utf-8"
+      }
+    }
+  ],
+  "comments": 
+    [
+    "console": "integratedTerminal 출력이 터미널에 보입니다(디버그 콘솔과 혼동 방지)."
+    "cwd": "${fileDirname}: 실행 디렉터리를 파일 위치로(상대경로 이슈 방지)."
+    "redirectOutput: true: 표준 출력이 VS Code로 잘 전달되게."
+    "stopOnEntry: false를 true로 바꾸면 첫 줄에서 멈춤(실행 흐름 확인용)."
+    ]
+}

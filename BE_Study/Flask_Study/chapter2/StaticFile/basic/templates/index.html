@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Flask Static File Example</h1>
+    <p>This is an example of serving static files in Flask.</p>
+    <img src="{{ url_for('static', filename='image.jpg') }}" alt="Example Image">
+
+    <!-- 정적 파일이 수정되면 웹페이지상에 정상 반영이 안될 수 있음. -->
+    <!-- 이런 경우 url_for 함수의 version 인자를 사용하여 해결 할 수 있음. -->
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles.css', version = '1.0') }}"> -->
+</body>
+</html>
