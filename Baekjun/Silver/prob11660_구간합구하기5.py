@@ -29,31 +29,39 @@ M_MAX = 100000
 class OverRangeError(Exception):
     pass
 
-def range_sum(matrix: list, x1: int, y1: int, x2: int, y2: int) -> int:
-    start_row, end_row = x1, x2
-    start_col, end_col = y1, y2
-    offset = end_col - start_col
-    result = 0
+# 구간합 행렬 구성
+def build_prefix(matrix: list[list[int]]) -> list[list[int]]:
+    """
+    return -> prefix_matrix
+    prefix_matrix[i][j] -> matrix의 (1,1) 에서 (i,j)까지의 합
+    """
+    n = len(matrix)
+    prefix_matrix = [[0] * (n+1) for _ in range(n+1)] # 1-based matrix
 
-    for row_idx, row in enumerate(matrix):
-        prefix_sum = 0
-        if row_idx <= end_row:
-            for col_idx, col in enumerate(row):
-                if col_idx+offset <= end_col:
-                    prefix_sum += col[offset+col_idx]
-        result += prefix_sum
+    # 구간 합 행렬 구하기
+    for i in range(1, n+1):
+        row_sum = 0
+        for j in range(1, n+1):
+            row_sum += matrix[i-1][j-1] # 원본 matrix는 0-based이므로 idx-1 해야함.
+            prefix_matrix[i][j] = prefix_matrix[i-1][j] + row_sum
     
-    return result
+    return prefix_matrix
 
+# 구간 합 구하기
+def range_sum(prefix_matrix: list, x1: int, y1: int, x2: int, y2: int) -> int:
+    """
+    구간합은 끝까지의 누적합 - 시작 전까지의 누적합
+    x1, y1 까지 포함이므로 1씩 빼줘야한다.
+    """
+    return prefix_matrix[x2][y2] - prefix_matrix[x1-1][y2] - prefix_matrix[x2][y1-1] + prefix_matrix[x1-1][y1-1]
 
 def main():
     N, M = map(int, input().split())
-    if not (1 <= N <= N_MAX and 1 <= M <= M_MAX):
-        raise OverRangeError(f"N or M is too large (N={N}, M={M})")
-    
-    if not (1 <= N <= N_MAX and 1 <= M <= M_MAX):
-        raise OverRangeError(f"N or M is negative or zero (N={N}, M={M})")
-    
+    if not (1 <= N <= N_MAX):
+        raise OverRangeError(f"N out of range: {N}")
+    if not (1 <= M <= M_MAX):
+        raise OverRangeError(f"M out of range: {M}")
+
     # 행렬 생성
     matrix = []
 
@@ -61,16 +69,18 @@ def main():
         row = list(map(int, input().split()))
         matrix.append(row)
 
-    # 구간 입력
+    # 구간 합 행렬 생성
+    prefix = build_prefix(matrix=matrix)
+
+    # 결과 출력
     result = []
 
     for _ in range(M):
         x1, y1, x2, y2 = map(int, input().split())
-        result.append(range_sum(matrix=matrix, x1=x1, y1=y1, x2=x2, y2=y2))
+        result.append(range_sum(prefix, x1, y1, x2, y2))
 
-    # 출력
-    for _, val in enumerate(result):
-        print(val)
-
+    for i in range(M):
+        print(result[i])
+        
 if __name__ == "__main__":
     main()
