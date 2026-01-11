@@ -27,7 +27,6 @@ def pos_compression(input_pos: list) -> list:
 
     return compressed
 
-
 # 좌료 압축 결과는 본인보다 작은 숫자의 갯수가 그 값, idx는 유지
 def main():
     input = sys.stdin.readline
