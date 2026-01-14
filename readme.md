@@ -136,4 +136,4 @@ pip install flask fastapi uvicorn
 
 </div>
 
-**Last Updated**: 2025년 12월 30일
+**Last Updated**: 2026년 01월 14일
