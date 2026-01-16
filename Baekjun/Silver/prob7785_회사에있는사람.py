@@ -18,3 +18,26 @@
 # 출력
 # 현재 회사에 있는 사람의 이름을 사전 순의 역순으로 한 줄에 한 명씩 출력한다.
 # ---------------------------------------------------------------------------------------------------- #
+class WorkerError(Exception):
+    pass
+
+def main():
+    n = int(input())
+    worker_set = set()
+
+    for _ in range(n):
+        name, status = input().split()
+        if status == "enter":
+            worker_set.add(name)
+        if status == "leave":
+            if name not in worker_set: 
+                raise WorkerError("{} is already leave!", name)
+            worker_set.remove(name)
+    
+    remaining_worker = sorted(list(worker_set), reverse=True)
+
+    for _, worker in enumerate(remaining_worker):
+        print(worker)
+
+if __name__ == "__main__":
+    main()
