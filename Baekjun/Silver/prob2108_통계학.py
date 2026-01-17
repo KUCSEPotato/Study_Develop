@@ -24,7 +24,7 @@
 from collections import Counter
 import sys
 
-input = sys.stdin.readline
+input = sys.stdin.readline # 안쓰면 시간 초과
 
 def custom_round(number: float) -> int:
     

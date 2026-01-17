@@ -31,7 +31,7 @@ solved.ac가 계산한 문제의 난이도를 출력한다.
 # custom 반올림 -> int(number + 0.5)
 # 0.5 보다 크면 올라갈 거고 작으면 내려감
 
-import sys # print 쓰니까 시간 초가가 남
+import sys # print 쓰니까 시간 초과가 남
 
 input = sys.stdin.readline
 
